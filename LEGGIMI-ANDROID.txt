@@ -1,0 +1,43 @@
+ARMONIA - progetto Android Studio (con le musiche incluse)
+=========================================================
+
+Cosa c'e' dentro
+- app/src/main/assets/www/index.html ... l'app intera, offline
+- app/src/main/assets/www/audio/01..12.mp3 ... una traccia per ogni cue,
+  gia' abbinata: al primo avvio la schermata TRACCE e' 12/12.
+- MainActivity.kt ... guscio nativo (WebView a schermo pieno, schermo
+  sempre acceso, nessuna barra)
+
+Fare l'APK
+1. Android Studio > File > Open > scegli questa cartella (armonia-android).
+2. Alla richiesta "Gradle wrapper / sync", accetta: scarica da solo Gradle
+   e l'Android SDK che serve (occorre internet solo per questo passaggio).
+3. Menu Build > Build Bundle(s)/APK(s) > Build APK(s).
+4. L'APK esce in app/build/outputs/apk/release/ (o debug/).
+   E' firmato con la chiave di debug: si installa sul Samsung senza
+   Play Store (abilita "Installa app sconosciute" per il gestore file).
+   Per uso personale va benissimo; per il Play Store serve un keystore tuo.
+
+In alternativa, da riga di comando nella cartella:
+   ./gradlew assembleRelease        (Mac/Linux)
+   gradlew.bat assembleRelease      (Windows)
+
+Cambiare le musiche
+- Sostituisci il file audio/NN.mp3 tenendo lo stesso nome (01 = cue 01,
+  02 = cue 02, 11 = Inno nazionale, 12 = Pause nel Tempio) e ricompila.
+- Il nome mostrato sotto ogni cue sta nella mappa BUNDLED dentro il
+  sorgente "Armonia App.dc.html" (da cui si rigenera index.html).
+- Dentro l'app puoi comunque sovrascrivere qualunque cue con un file del
+  telefono dalla schermata TRACCE: la scelta manuale ha la precedenza e
+  resta memorizzata.
+
+Note
+- Le tracce 05 e 09 (apertura/chiusura della Bibbia) sono lo stesso brano,
+  come nell'app soundboard esistente.
+- La riproduzione e' la stessa della PWA: tocco = parte, secondo tocco =
+  sfuma in 4 secondi, SOTTO VOCE = 24%, STOP = taglio immediato.
+
+Loop
+- 01 (Sala dei Passi Perduti) e 12 (Pause nel Tempio) suonano in loop
+  finche' non le fermi; le altre finiscono da sole. La mappa e' la
+  costante LOOP nel sorgente "Armonia App.dc.html".

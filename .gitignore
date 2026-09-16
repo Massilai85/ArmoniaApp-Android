@@ -1,0 +1,22 @@
+# Build output
+/build/
+/app/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# Local config (percorso SDK personale)
+local.properties
+
+# Gradle
+.gradle/
+GradleLocalCache/
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+.DS_Store
+
+# Keystore / firme (se mai aggiunte)
+*.jks
+*.keystore
